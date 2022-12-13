@@ -1,0 +1,29 @@
+<section>
+    <p class="text-center"><strong>Leave a reply</strong></p>
+  
+    <form [formGroup]="commentForm" >
+      <!-- Name input -->
+      <div class="card text-white bg-dark mb-1" style="max-width: 28rem;margin-left: 300px;margin-top: 50px;">
+        <input type="text" id="form4Example1" class="form-control" formControlName='name'/>
+        <label class="form-label" for="form4Example1">Name</label>
+      </div>
+  
+      <!-- Email input -->
+      <div class="card text-white bg-dark mb-6" style="max-width: 28rem;margin-left: 300px;margin-top: 50px;">
+        <input type="email" id="form4Example2" class="card-text-white" formControlName="email" />
+        <label class="form-label" for="form4Example2">Email address</label>
+      </div>
+  
+      <!-- Message input -->
+      <div class="card text-white bg-dark mb-6" style="max-width: 28rem;margin-left: 300px;margin-top: 50px;" >
+        <textarea class="form-control" id="form4Example3" rows="4" formControlName="body"></textarea>
+        <label class="form-label" for="form4Example3">Text</label>
+      </div>
+      <div class="card  mb-2" style="max-width: 28rem;margin-left: 300px;" >
+        <button  class="btn btn-primary " style="margin-top: 10px;" (click)="comment()">publish</button>
+  
+      </div>
+  
+    </form>
+  </section>
+      

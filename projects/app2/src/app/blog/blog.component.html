@@ -1,0 +1,140 @@
+
+
+<!--Main Navigation-->
+<header>
+    <!-- Sidebar -->
+    <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-black">
+      <div class="position-sticky">
+        <div class="list-group list-group-flush mx-3 mt-4">
+          <a
+            href="#"
+            class="list-group-item list-group-item-action py-2 ripple"
+            aria-current="true"
+          ></a>
+          <a  class="list-group-item list-group-item-action py-2 ripple active" class="ripple">
+             <a class="text text-primary" (click)="details(content)">Create post</a>
+          </a>
+          <a class="list-group-item list-group-item-action " class="ripple"
+            ><span>View Post</span></a
+          >
+          <a  class="list-group-item list-group-item-action py-2 ripple " class="ripple"
+            ><span>Profile</span></a
+           >
+        </div>
+      </div>
+    </nav>
+    <!-- Sidebar -->
+  
+    <!-- Navbar -->
+    <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+      <!-- Container wrapper -->
+      <div class="container-fluid">
+        <!-- Toggle button -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-mdb-toggle="collapse"
+          data-mdb-target="#sidebarMenu"
+          aria-controls="sidebarMenu"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+  
+        <!-- Brand -->
+      
+  
+        <!-- Right links -->
+       
+  <!--Main Navigation-->
+  
+  <!--Main layout-->
+  <main style="margin-top: 58px;">
+    <div class="container pt-4"></div>
+  </main>
+  <!--Main layout-->
+  </div>
+</nav>
+</header>
+<div class="card text-white bg-dark mb-6" style="max-width: 78rem;margin-left: 300px;margin-top: 50px;" *ngFor='let post of postList ;index as i'>
+  <div class="card-header bg-info">{{post.title}}</div>
+  <div class="card-body">
+    <h5 class="card-title"></h5>
+    <p class="card-text">
+    {{post.body}}</p>
+    
+  </div>
+
+  <div class="card-text" *ngFor='let comment of commentList ;index as i'>
+  </div>
+  <section style="background-color: #black " style="max-width:70rem;margin-right: 400px;padding: 100px;padding-bottom:0px;padding-left: 0px; text-align: start;"  >
+    <div class="container my-1 py-1 text-dark">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-6">
+          <div class="card">
+            <div class="card-body p-4">
+              <div class="d-flex flex-start w-100">
+                
+               
+                <div class="w-100">
+                  <h5>Add a comment</h5>
+                 
+                  <div class="form-outline" [formGroup]="commentForm">
+                    <textarea class="form-control" id="textAreaExample" rows="4" formControlName="body"></textarea>
+                    <label class="form-label" for="textAreaExample">What is your view?</label>
+                  </div>
+                  <div class="d-flex justify-content-between mt-3">
+                    <button type="button" style="visibility: hidden;"></button>
+                    <button type="button" class="btn btn-primary" (click)="postComment()">
+                      Comment <i class="fas fa-long-arrow-alt-right ms-1"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+</div>
+
+&nbsp;
+<ng-template  #content let-c="close" let-d="dismiss">
+  <div class="modal-header bg-color bg-warning ">
+    <h4 class="modal-title text-lg text-bold text-align text-align-center" id="modal-basic-title">Create Post!</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
+    <hr>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="createPost">
+       <!-- title input -->
+      <div class="text-black mb-2" >
+        <label class="form-label" for="form4Example2">Title</label>&nbsp;
+        <input type="text" id="field" class="card-text-white" formControlName="title" />
+      </div>
+  
+      <div class="text-black mb-2" >
+        <label class="form-label" for="form4Example3">id </label>
+        <input class="form-control" id="message" rows="4" formControlName="id">
+      </div>
+
+      <div class="text-black mb-2" >
+        <label class="form-label" for="form4Example3">User Id</label>
+        <input class="form-control" id="message" rows="4" formControlName="user_id">
+      </div>
+
+
+      <!-- Message input -->
+      <div class="text-black mb-2" >
+        <label class="form-label" for="form4Example3">Content </label>
+        <textarea class="form-control" id="message" rows="4" formControlName="body"></textarea>
+      </div>
+      <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+        <button type="button" class="btn btn-primary btn-lg" (click)="addPost()">Post</button>
+      </div>
+    </form>
+  </div>
+</ng-template>
