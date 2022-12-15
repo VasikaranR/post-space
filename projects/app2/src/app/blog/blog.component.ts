@@ -16,7 +16,7 @@ export class BlogComponent implements OnInit {
   commentList:any=[]
   ngOnInit(): void {
     this.getPost()
-    this.getComments()
+    // this.getComments()
   }
   
   blogForm!: FormGroup | any;
@@ -40,8 +40,8 @@ export class BlogComponent implements OnInit {
     })
 
     this.commentForm=this.formbuilder.group({
-      id:new FormControl(7631),
-      post_id: new FormControl(7864),
+      id:new FormControl(6631),
+      post_id: new FormControl(9864),
       name: new FormControl('basset'),
       email: new FormControl('base@gmail.com'),
       body:new FormControl('',[Validators.required])
@@ -97,12 +97,18 @@ export class BlogComponent implements OnInit {
   }
 
   postComment(){
+    
+    console.log("ththht",this.commentForm.value)
     this.blogService.postComment(this.commentForm.value).subscribe({
       next:(response:any)=>{
         console.log("comment added successfully",response)
 
       }
     })
+  }
+
+  logout(){
+    this.router.navigate(['login'])
   }
 
 }

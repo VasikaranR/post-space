@@ -4,5 +4,5 @@ export interface Register{
     email:string,
     gender:string,
     status:string,
-    
+ 
 }

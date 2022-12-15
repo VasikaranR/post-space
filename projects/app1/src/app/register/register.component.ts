@@ -20,11 +20,11 @@ export class RegisterComponent implements OnInit {
   constructor(private formbuilder: FormBuilder , private http:HttpClient , private router:Router,private registerService:RegisterService) { 
 
     this.registerForm = this.formbuilder.group({
-      id: new FormControl('', [Validators.required]),
-      name: new FormControl('', [Validators.required]),
-      email:new FormControl('',[Validators.required]),
-      gender:new FormControl('',[Validators.required]),
-      status:new FormControl('',[Validators.required]),
+      id: new FormControl('', [Validators.required,Validators.pattern('^[0-9]')]),
+      name: new FormControl('', [Validators.required ,Validators.pattern('')]),
+      email:new FormControl('',[Validators.required, Validators.pattern('^[a-z0-9\.]{4,18}@[a-z]+\.[a-z\.]{2,6}$')]),
+      gender:new FormControl('',[Validators.required,Validators.pattern('^male$|^female$')]),
+      status:new FormControl('',[Validators.required,Validators.pattern('^active|^inactive')]),
     });    
 
 }

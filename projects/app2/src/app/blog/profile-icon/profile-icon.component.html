@@ -1,0 +1,18 @@
+<mat-toolbar>
+    <h2></h2>
+    <span class="header-spacer">ooo</span>
+    <button  style='background-color: #f2e6f1'mat-button mat-mini-fab [matMenuTriggerFor]="beforeMenu">
+      <p style="color:#781C68; font-weight:600;"></p>
+    </button>
+    <mat-icon>keyboard_arrow_down</mat-icon>
+    <mat-menu style="width:50%;">&nbsp;
+    <mat-menu #beforeMenu="matMenu" xPosition="before">&nbsp;
+      <button mat-mini-fab style='background-color: #f2e6f1'>
+        <p style="font-weight:strong; color: #781C68;"></p>
+      </button>
+       &nbsp;<span><strong></strong></span>&nbsp;&nbsp;
+      <button mat-menu-item ><mat-icon>exit_to_app</mat-icon>Logout</button>
+    </mat-menu>
+  </mat-menu>
+   
+  </mat-toolbar>

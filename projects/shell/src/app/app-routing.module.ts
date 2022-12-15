@@ -1,6 +1,7 @@
 import { loadRemoteModule } from '@angular-architects/module-federation';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthguardService as AuthGuard } from 'projects/authguard.service';
 
 const routes: Routes = [
   {
@@ -28,8 +29,8 @@ const routes: Routes = [
       type:'module',
       remoteEntry:'http://localhost:4001/remoteEntry.js',
       exposedModule:'.BlogModule',
-    }).then((m)=>m.BlogModule)
-
+    }).then((m)=>m.BlogModule),
+    canActivate:[AuthGuard]
   }
 ];
 

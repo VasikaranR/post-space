@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { CommentRoutingModule } from './comment-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HeadersInterceptor } from 'projects/headers.interceptor';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
     CommentRoutingModule,
     ReactiveFormsModule,
     HttpClientModule
-  ]
+  ],
+  providers:[{provide:HTTP_INTERCEPTORS,useClass:HeadersInterceptor,multi:true}]
 })
 export class CommentModule { }

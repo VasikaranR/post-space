@@ -1,6 +1,6 @@
 export interface comment{
-    id:string,
-    post_id:string
+    id:number,
+    post_id:number,
     name:string,
     email:string,
     body:string

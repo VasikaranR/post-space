@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { blog } from './blogDataModel';
+import { comment } from '../comment/commentDataModel';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +24,7 @@ export class BlogService {
     return this.http.get(`https://gorest.co.in/public/v2/comments`)
   }
   
-  postComment(comment:any){
+  postComment(comment:comment){
     return this.http.post(`https://gorest.co.in/public/v2/comments`,comment)
   }
 

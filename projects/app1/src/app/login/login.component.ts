@@ -3,6 +3,9 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { LoginService } from './login.service';
+import { NgToastService } from 'ng-angular-popup';
+
+
 
 
 
@@ -17,8 +20,7 @@ export class LoginComponent implements OnInit {
   }
   loginForm!: FormGroup | any;
 
-  constructor(private formbuilder: FormBuilder , private http:HttpClient , private router:Router,private loginService:LoginService) { 
-
+  constructor(private formbuilder: FormBuilder , private http:HttpClient , private router:Router,private loginService:LoginService,private toast:NgToastService){
     this.loginForm = this.formbuilder.group({
       email: new FormControl('', [Validators.required]),
       name: new FormControl('', [Validators.required]),
@@ -43,6 +45,7 @@ get name() {
       next:(response:any)=>{
         console.log(response[0].name)
         if(response[0].name==username && response[0].email==userEmail){
+
           console.log("logged successfully")
           this.router.navigate(['blog'])
         }

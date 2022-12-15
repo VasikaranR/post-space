@@ -3,7 +3,7 @@ body {
   }
   @media (min-width: 991.98px) {
     main {
-      padding-left: 240px;
+      padding-left: 440px;
     }
   }
   
@@ -43,5 +43,11 @@ body {
     background-color: whitesmoke;
   }
   .container-fluid{
-    background-color: #0014FF;
+    background-color: #7F167F;
+    
+  }
+
+  app-profile-icon{
+    margin-left: 1700px;
+    
   }
